@@ -104,38 +104,38 @@
         <!-- Task 2: Contact Form Section -->
         <section id="contact-section" class="content-block">
             <h2>Contact Us</h2>
-            <form id="contactForm">
+            <form id="contactForm" novalidate> <!-- Added novalidate to disable browser default validation bubbles -->
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" id="name" name="name">
+                    <input type="text" id="name" name="name" required> <!-- Added required attribute for semantics/fallback -->
                     <small class="error-message"></small>
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email">
+                    <input type="email" id="email" name="email" required>
                     <small class="error-message"></small>
                 </div>
                 <div class="form-group">
                     <label for="subject">Subject:</label>
-                    <input type="text" id="subject" name="subject">
+                    <input type="text" id="subject" name="subject"> <!-- Optional Field -->
                     <small class="error-message"></small>
                 </div>
                 <div class="form-group">
                     <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="5"></textarea>
+                    <textarea id="message" name="message" rows="5" required></textarea>
                     <small class="error-message"></small>
                 </div>
                 <button type="submit" class="form-submit-btn">Send Message</button>
             </form>
-            <p id="formSuccessMessage" class="success-message" style="display:none;">Your message has been sent successfully!</p>
+            <p id="formSuccessMessage" class="success-message" style="display:none;"></p>
         </section>
 
         <!-- Task 2: Dynamic To-Do List Section -->
         <section id="todo-section" class="content-block">
             <h2>My To-Do List</h2>
             <div class="todo-input-area">
-                <input type="text" id="todoInput" placeholder="Add a new task...">
-                <button id="addTodoButton">Add Task</button>
+                <input type="text" id="todoInput" placeholder="Add a new task..." aria-label="New task input">
+                <button id="addTodoButton" type="button">Add Task</button> <!-- type="button" prevents accidental form submission if nested -->
             </div>
             <ul id="todoList">
                 <!-- Tasks will be added here by JavaScript -->
