@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vis Recommendations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-container"> <!-- For CSS Grid layout -->
+
+        <header>
+            <h1>Vis Recommendations</h1>
+        </header>
+
+        <!-- Wrapper for Horizontal Scrolling -->
+        <div class="scroll-wrapper">
+            <main class="recommendation-container scrollable">
+
+                <!-- Item 1: 3 Idiots -->
+                <div class="recommendation-card">
+                     <img src="https://m.media-amazon.com/images/M/MV5BNTkyOGVjMGEtNmQzZi00NzFlLTlhOWQtODYyMDc2ZGJmYzFhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg" alt="3 Idiots Poster">
+                    <div class="movie-details">
+                        <h3>3 Idiots</h3>
+                        <div class="rating-votes">
+                            <span class="rating">⭐ 8.4</span>
+                            <span class="votes">(1.9M Votes)</span>
+                        </div>
+                        <p class="metadata">2009 | PG-13 | Comedy/Drama</p>
+                    </div>
+                </div>
+
+                <!-- Item 2: Sacred Games -->
+                <div class="recommendation-card">
+                    <img src="https://resizing.flixster.com/7mzqzF4P3gPiorR1rSAAwB-EGOY=/206x305/v2/https://resizing.flixster.com/j3Pk-1QBwBZ7_pn6rGObBhi4eoY=/ems.cHJkLWVtcy1hc3NldHMvdHZzZWFzb24vUlRUVjMxNTc1OC53ZWJw" alt="Sacred Games Poster">
+                    <div class="movie-details">
+                        <h3>Sacred Games</h3>
+                         <div class="rating-votes">
+                            <span class="rating">⭐ 8.5</span>
+                            <span class="votes">(105k Votes)</span>
+                        </div>
+                        <p class="metadata">2018 | TV-MA | Crime/Drama</p>
+                     </div>
+                </div>
+
+                <!-- Item 3: Mirzapur -->
+                <div class="recommendation-card">
+                     <img src="https://resizing.flixster.com/nEdw6ADm6SWebo5BEUoO_YD8TTU=/206x305/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p16201104_b_v8_aa.jpg" alt="Mirzapur Poster">
+                     <div class="movie-details">
+                        <h3>Mirzapur</h3>
+                        <div class="rating-votes">
+                            <span class="rating">⭐ 8.5</span>
+                            <span class="votes">(90k Votes)</span>
+                        </div>
+                        <p class="metadata">2018 | TV-MA | Action/Crime</p>
+                    </div>
+                </div>
+
+                 <!-- Item 4: Lagaan -->
+                <div class="recommendation-card">
+                     <img src="https://resizing.flixster.com/ISa6F2eD39Tj5r6z9C-_Ok_9NSc=/206x305/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p27923_p_v10_ad.jpg" alt="Lagaan Poster">
+                     <div class="movie-details">
+                         <h3>Lagaan</h3>
+                         <div class="rating-votes">
+                             <span class="rating">⭐ 8.1</span>
+                             <span class="votes">(198k Votes)</span>
+                         </div>
+                        <p class="metadata">2001 | PG | Adventure/Drama</p>
+                     </div>
+                </div>
+
+                 <!-- Item 5: Gangs of Wasseypur -->
+                <div class="recommendation-card">
+                     <img src="https://m.media-amazon.com/images/M/MV5BMTc5NjY4MjUwNF5BMl5BanBnXkFtZTgwODM3NzM5MzE@._V1_FMjpg_UX1000_.jpg" alt="Gangs of Wasseypur Poster">
+                    <div class="movie-details">
+                        <h3>Gangs of Wasseypur</h3>
+                        <div class="rating-votes">
+                            <span class="rating">⭐ 8.2</span>
+                            <span class="votes">(105k Votes)</span>
+                        </div>
+                        <p class="metadata">2012 | Not Rated | Action/Crime</p>
+                    </div>
+                </div>
+
+                 <!-- Item 6: Paatal Lok -->
+                <div class="recommendation-card">
+                     <img src="https://resizing.flixster.com/V26CJFvEiM9dU25LLZOrmHuNE10=/206x305/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p18295981_b_v9_ac.jpg" alt="Paatal Lok Poster">
+                    <div class="movie-details">
+                        <h3>Paatal Lok</h3>
+                        <div class="rating-votes">
+                            <span class="rating">⭐ 8.5</span>
+                             <span class="votes">(81k Votes)</span>
+                        </div>
+                        <p class="metadata">2020 | TV-MA | Crime/Drama</p>
+                    </div>
+                 </div>
+                  <!-- Add more cards here if needed -->
+            </main>
+        </div>
+
+        <!-- Task 2: Contact Form Section -->
+        <section id="contact-section" class="content-block">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name">
+                    <small class="error-message"></small>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+                    <small class="error-message"></small>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject">
+                    <small class="error-message"></small>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5"></textarea>
+                    <small class="error-message"></small>
+                </div>
+                <button type="submit" class="form-submit-btn">Send Message</button>
+            </form>
+            <p id="formSuccessMessage" class="success-message" style="display:none;">Your message has been sent successfully!</p>
+        </section>
+
+        <!-- Task 2: Dynamic To-Do List Section -->
+        <section id="todo-section" class="content-block">
+            <h2>My To-Do List</h2>
+            <div class="todo-input-area">
+                <input type="text" id="todoInput" placeholder="Add a new task...">
+                <button id="addTodoButton">Add Task</button>
+            </div>
+            <ul id="todoList">
+                <!-- Tasks will be added here by JavaScript -->
+            </ul>
+        </section>
+
+        <footer>
+            <p>© 2025 Vis Recommendations - Your Source for Bollywood Hits. Designed by <a href="https://github.com/vishal-27-dev">Vishal-Kumar-Rajak</a></p>
+        </footer>
+    </div> <!-- end of .page-container -->
+
+    <script src="script.js"></script>
+</body>
+</html>
