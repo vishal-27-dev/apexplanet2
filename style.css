@@ -1,0 +1,433 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    background-color: #000000; /* Pitch Black */
+    color: #e0e0e0; /* Light grey text */
+    font-family: 'Roboto', sans-serif; /* Modern Font */
+    line-height: 1.5;
+    /* overflow-x: hidden; */ /* Removed to allow grid to manage overall structure */
+}
+
+/* Page Container using CSS Grid */
+.page-container {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto; /* Header, Scroll-Wrapper, Content (stretches), Footer */
+    grid-template-areas:
+        "header"
+        "recommendations"
+        "main-content" /* For future or more general content */
+        "contact"
+        "todo"
+        "footer";
+    min-height: 100vh; /* Ensure it takes full viewport height */
+}
+
+/* Assigning areas - Header stays default in row 1 */
+header {
+    grid-area: header;
+    text-align: center;
+    padding: 40px 20px 30px 20px;
+}
+.scroll-wrapper { grid-area: recommendations; }
+#contact-section { grid-area: contact; }
+#todo-section { grid-area: todo; }
+footer { grid-area: footer; }
+
+header h1 {
+    font-size: 3.8em;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin: 0;
+}
+
+/* Scroll Wrapper - Manages Padding around the scrolling area */
+.scroll-wrapper {
+    padding: 0 40px;
+    margin-bottom: 30px;
+}
+
+/* Recommendation Container - The Actual Scrolling Flexbox */
+.recommendation-container.scrollable {
+    display: flex; /* Enable Flexbox */
+    overflow-x: auto;
+    padding-bottom: 20px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.recommendation-container.scrollable::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Individual Recommendation Card Styling */
+.recommendation-card {
+    background-color: #141414;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 240px;
+    flex: 0 0 auto;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #222;
+}
+
+.recommendation-card:last-child {
+    margin-right: 0;
+}
+
+.recommendation-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.08);
+}
+
+.recommendation-card img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    display: block;
+}
+
+.movie-details {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: #181818;
+}
+
+.movie-details h3 {
+    color: #ffffff;
+    font-size: 1.15em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.rating-votes {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.rating-votes .rating {
+    color: #f5c518;
+    font-weight: 700;
+    font-size: 1em;
+    margin-right: 8px;
+}
+
+.rating-votes .votes {
+    color: #ababab;
+    font-size: 0.8em;
+}
+
+.movie-details .metadata {
+    font-size: 0.85em;
+    color: #ababab;
+    margin-top: auto;
+    padding-top: 5px;
+}
+
+/* General Content Block Styling */
+.content-block {
+    padding: 30px 40px;
+    background-color: #0a0a0a; /* Slightly different shade for content sections */
+    margin: 0 20px 30px 20px; /* Centering and spacing for section blocks */
+    border-radius: 8px;
+    max-width: 800px; /* Limit width for better readability */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content-block h2 {
+    color: #ffffff;
+    font-size: 2em;
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 2px solid #E50914; /* Accent color */
+    padding-bottom: 10px;
+    display: inline-block; /* To make border only span text width */
+}
+
+/* Contact Form Styling */
+#contact-section {
+    text-align: center; /* To center the inline-block h2 */
+}
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px; /* Limit form width within its block */
+    margin: 0 auto; /* Center the form itself */
+    text-align: left; /* Align labels and inputs left */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    color: #c7c7c7;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #444;
+    padding: 12px 15px;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #E50914; /* Netflix Red */
+    box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.3);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.error-message {
+    color: #ff4d4d; /* Error Red */
+    font-size: 0.85em;
+    margin-top: 3px;
+    display: block; /* Ensure it takes its own line */
+    height: 1.2em; /* Reserve space to prevent layout shifts */
+}
+.form-group input.input-error,
+.form-group textarea.input-error {
+    border-color: #ff4d4d;
+}
+
+.form-submit-btn, #addTodoButton {
+    padding: 12px 30px;
+    background-color: #E50914; /* Netflix-like Red */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    align-self: flex-start; /* For form button alignment */
+}
+#contactForm .form-submit-btn {
+     align-self: center; /* Center form button */
+     margin-top: 10px;
+}
+
+
+.form-submit-btn:hover, #addTodoButton:hover {
+    background-color: #f40612; /* Brighter red on hover */
+    transform: scale(1.02);
+}
+
+.success-message {
+    color: #4CAF50; /* Success Green */
+    text-align: center;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+
+/* To-Do List Styling */
+#todo-section {
+    text-align: center; /* Center heading and input area */
+}
+.todo-input-area {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#todoInput {
+    flex-grow: 1;
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #444;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1em;
+}
+#todoInput:focus {
+    border-color: #E50914;
+    outline: none;
+}
+
+#todoList {
+    list-style: none;
+    padding: 0;
+    max-width: 600px; /* Align with form width potentially */
+    margin: 0 auto; /* Center list items if they are block */
+    text-align: left; /* Ensure text within li is left-aligned */
+}
+
+#todoList li {
+    background-color: #222;
+    color: #d1d1d1;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+#todoList li.completed {
+    text-decoration: line-through;
+    color: #777;
+    background-color: #1a1a1a;
+}
+
+
+#todoList li:hover {
+    background-color: #2c2c2c;
+}
+
+.remove-todo-btn {
+    background-color: transparent;
+    color: #aaa;
+    border: 1px solid #444;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.remove-todo-btn:hover {
+    background-color: #f40612;
+    color: #fff;
+    border-color: #f40612;
+}
+
+/* Task 1 JS Button (Old alert button - remove styling if button removed from HTML) */
+/* .interaction-section was removed, no specific styling needed anymore for the old button */
+
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #555;
+    font-size: 0.9em;
+    border-top: 1px solid #1a1a1a;
+    margin-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.8em;
+    }
+    .scroll-wrapper {
+        padding: 0 20px;
+    }
+     .recommendation-card {
+        width: 200px;
+        margin-right: 15px;
+    }
+    .recommendation-card img {
+        height: 300px;
+    }
+     .movie-details h3 {
+        font-size: 1.05em;
+    }
+    .content-block {
+        padding: 20px 20px;
+        margin: 0 15px 25px 15px;
+    }
+    .content-block h2 {
+        font-size: 1.7em;
+    }
+    .todo-input-area {
+        flex-direction: column;
+    }
+    #addTodoButton {
+        align-self: stretch; /* Full width in column layout */
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2.2em;
+    }
+     .scroll-wrapper {
+        padding: 0 10px;
+    }
+    .recommendation-card {
+        width: 160px;
+        margin-right: 10px;
+    }
+    .recommendation-card img {
+        height: 240px;
+    }
+     .movie-details h3 {
+        font-size: 0.95em;
+    }
+     .rating-votes .rating {
+        font-size: 0.9em;
+    }
+     .rating-votes .votes {
+        font-size: 0.7em;
+     }
+     .movie-details .metadata {
+         font-size: 0.75em;
+     }
+     .form-submit-btn, #addTodoButton {
+         padding: 10px 25px;
+         font-size: 0.95em;
+     }
+     #todoList li {
+         font-size: 0.9em;
+         padding: 10px 12px;
+     }
+     .remove-todo-btn {
+         font-size: 0.75em;
+     }
+     .content-block h2 {
+        font-size: 1.5em;
+     }
+}
+
+/* Grid adjustments for smaller screens if needed */
+@media (max-width: 600px) {
+    .page-container {
+        grid-template-areas: /* Simpler stack on very small screens */
+            "header"
+            "recommendations"
+            "contact"
+            "todo"
+            "footer";
+        grid-template-columns: 1fr; /* Ensure it doesn't try to use multiple columns */
+    }
+    .content-block {
+        margin: 0 10px 20px 10px;
+    }
+}
